@@ -1,0 +1,11 @@
+#mainPane {
+    fx-pref-width: 400px;
+}
+
+
+
+
+#newCategoryPrompt{
+    -fx-background-color: #FFFFFF;
+    -fx-padding: 8px;
+}

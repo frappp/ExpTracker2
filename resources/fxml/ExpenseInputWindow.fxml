@@ -1,0 +1,48 @@
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.DatePicker?>
+<GridPane fx:controller="expense.ExpenseInputController" stylesheets="/styles/styles.css"
+          xmlns:fx="http://javafx.com/fxml" alignment="TOP_CENTER" hgap="10" vgap="10" fx:id="mainPane">
+    <fx:define>
+        <ToggleGroup fx:id="expenseTypeGroup"/>
+        <ToggleGroup fx:id="expenseCategoryGroup"/>
+        <ToggleGroup fx:id="incomeCategoryGroup"/>
+    </fx:define>
+    <GridPane fx:id="expenseInputPaneMain">
+        <Label fx:id="displayUser" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+        <ToggleButton text="Expense" toggleGroup="$expenseTypeGroup" GridPane.columnIndex="0" GridPane.rowIndex="1" onAction="#toggleIncomeExpense" fx:id="expenseCategoriesToggleButton" />
+        <ToggleButton text="Income" toggleGroup="$expenseTypeGroup" GridPane.columnIndex="1" GridPane.rowIndex="1" onAction="#toggleIncomeExpense" fx:id="incomeCategoriesToggleButton" />
+        <TextField fx:id="itemName" promptText="itemname" prefHeight="20" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+        <TextField fx:id="itemCost" promptText="itemcost" prefHeight="20" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+        <TextArea fx:id="itemDesc" promptText="item description" prefWidth="90" GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.rowSpan="4" />
+        <GridPane GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.columnSpan="2" GridPane.rowSpan="5" fx:id="expCategoryList">
+
+        </GridPane>
+
+        <GridPane GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.columnSpan="2" GridPane.rowSpan="5" fx:id="incCategoryList" visible="false">
+            <!--&gt;>>Category radio buttons go here<<<-->
+        </GridPane>
+        <GridPane GridPane.columnIndex="1" GridPane.rowIndex="7" alignment="BOTTOM_RIGHT">
+            <Button text="X" GridPane.columnIndex="0" GridPane.rowIndex="0" onAction="#promptDeleteCategory" />
+            <Button text="+" onAction="#showAddCategory" fx:id="addCategoryButton" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        </GridPane>
+
+        <!--prompt to insert new category - hidden by default-->
+        <GridPane GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.columnSpan="2" GridPane.rowSpan="2" fx:id="newCategoryPrompt" visible="false">
+            <Label text="Input new category:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <TextField GridPane.columnIndex="0" GridPane.rowIndex="1" fx:id="newCategoryField" />
+            <Button text="Submit" GridPane.columnIndex="1" GridPane.rowIndex="1" onAction="#newCategoryClick" />
+        </GridPane>
+        <GridPane GridPane.columnIndex="2" GridPane.rowIndex="8">
+            <Button fx:id="submitButton" text="Submit" GridPane.columnIndex="0" GridPane.rowIndex="0" onAction="#submitExpense" />
+            <Button text="Logout"  GridPane.columnIndex="1" GridPane.rowIndex="0" onAction="#exit" />
+
+        </GridPane>
+        <DatePicker fx:id="entryCalendar" GridPane.columnIndex="0" GridPane.rowIndex="8" GridPane.columnSpan="2" />
+    </GridPane>
+</GridPane>

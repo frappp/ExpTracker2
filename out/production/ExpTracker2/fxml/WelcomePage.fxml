@@ -1,0 +1,34 @@
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<GridPane fx:controller="expense.WelcomePage" stylesheets="/styles/styles.css"
+          xmlns:fx="http://javafx.com/fxml" alignment="TOP_CENTER" hgap="10" vgap="10" fx:id="mainPane">
+    <fx:define>
+        <ToggleGroup fx:id="newOrExistUser" />
+    </fx:define>
+    <GridPane alignment="TOP_LEFT" fx:id="secondPane" GridPane.columnIndex="0" GridPane.rowIndex="0">
+        <ToggleButton fx:id="existUserTog" text="Enter User Name" GridPane.columnIndex="0" GridPane.rowIndex="0" toggleGroup="$newOrExistUser" onAction="#toggleNewUser"/>
+        <ToggleButton fx:id="newUserTog" text="Create New User" GridPane.columnIndex="1" GridPane.rowIndex="0" toggleGroup="$newOrExistUser" onAction="#toggleNewUser"/>
+    </GridPane>
+    <GridPane GridPane.columnIndex="0" GridPane.rowIndex="1" fx:id="existingUserPane">
+        <TextField fx:id="userName" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <Button fx:id="submitUser" GridPane.columnIndex="1" GridPane.rowIndex="0" text="Login" onAction="#userLoginClick" />
+    </GridPane>
+    <GridPane GridPane.columnIndex="0" GridPane.rowIndex="1" fx:id="newUserPane" visible="false">
+        <Label text="First Name" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="newFirstName" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <Label text="Last Name" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="newLastName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Label text="User ID" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextField fx:id="newUserName" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <Button GridPane.columnIndex="1" GridPane.rowIndex="3" text="Submit" onAction="#submitNewUser" />
+    </GridPane>
+    <!--<GridPane GridPane.columnIndex="0" GridPane.rowIndex="2">-->
+        <!--<Button text="submit query" onAction="#testQuery" GridPane.columnIndex="0"  />-->
+        <!--<Button text="submit update" onAction="#testUpdate" GridPane.columnIndex="1"  />-->
+
+    <!--</GridPane>-->
+</GridPane>

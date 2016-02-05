@@ -3,15 +3,8 @@ package expense;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
-import javafx.stage.Window;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 public class WelcomePage {
 
@@ -39,8 +32,6 @@ public class WelcomePage {
     ToggleButton newUserTog;
     @FXML
     Button submitUser;
-    @FXML
-    GridPane expenseInputWindow;
 
 //    public WelcomePage(){
 //    }

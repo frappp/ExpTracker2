@@ -59,6 +59,10 @@ public class UserManager {
         return user;
     }
 
+    public static void setUser(User user) {
+        UserManager.user = user;
+    }
+
     public static void userLogin(String attemptedUserName) {
         String userToQuery = attemptedUserName;
         Connection conn = null;

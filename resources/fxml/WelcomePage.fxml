@@ -26,9 +26,4 @@
         <TextField fx:id="newUserName" GridPane.columnIndex="1" GridPane.rowIndex="2" />
         <Button GridPane.columnIndex="1" GridPane.rowIndex="3" text="Submit" onAction="#submitNewUser" />
     </GridPane>
-    <!--<GridPane GridPane.columnIndex="0" GridPane.rowIndex="2">-->
-        <!--<Button text="submit query" onAction="#testQuery" GridPane.columnIndex="0"  />-->
-        <!--<Button text="submit update" onAction="#testUpdate" GridPane.columnIndex="1"  />-->
-
-    <!--</GridPane>-->
 </GridPane>

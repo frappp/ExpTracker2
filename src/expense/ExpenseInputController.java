@@ -4,17 +4,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
-import sun.java2d.pipe.SpanShapeRenderer;
 
+import java.io.IOException;
 import java.sql.*;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Optional;
-import java.util.function.BooleanSupplier;
+import java.util.concurrent.ExecutionException;
 
 public class ExpenseInputController {
     @FXML
@@ -381,11 +379,18 @@ public class ExpenseInputController {
         } else {
             itemEntryDate = entryCalendar.getValue().toString();
         }
+        try {
+            int itemEntryCostInt = Integer.parseInt(itemEntryCost);
+            submitExpenseToDB(itemEntryName, itemEntryCostInt, itemEntryDescription, itemEntryDate, itemExpenseCatID, itemEntryUserID);
+            itemCost.setText("");
+        } catch (Exception e){
+            System.out.println("Error");
+            itemCost.setText("cannot be string");
+        }
 
-        submitExpenseToDB(itemEntryName, itemEntryCost, itemEntryDescription, itemEntryDate, itemExpenseCatID, itemEntryUserID);
 
         itemName.setText("");
-        itemCost.setText("");
+
         itemDesc.setText("");
         entryCalendar.setValue(LocalDate.now());
         expenseCategoryGroup.getToggles().clear();
@@ -393,7 +398,7 @@ public class ExpenseInputController {
 
     }
 
-    private void submitExpenseToDB(String itemEntryName, String itemEntryCost, String itemEntryDescription, String itemEntryDate, int itemExpenseCatID, int itemEntryUserID) {
+    private void submitExpenseToDB(String itemEntryName, int itemEntryCost, String itemEntryDescription, String itemEntryDate, int itemExpenseCatID, int itemEntryUserID) {
         Connection conn = null;
         try {
             Class.forName("org.sqlite.JDBC").newInstance();
@@ -418,8 +423,14 @@ public class ExpenseInputController {
     }
 
     public void exit(ActionEvent ae) throws Exception{
+        UserManager.setUser(null);
         WindowController.getExpenseStage().hide();
         WindowController.getPrimaryStage().show();
+    }
+
+
+    public void viewReport(ActionEvent ae) throws Exception{
+        WindowController.loadReportWindow();
     }
 
 }

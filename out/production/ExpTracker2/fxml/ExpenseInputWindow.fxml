@@ -44,5 +44,6 @@
 
         </GridPane>
         <DatePicker fx:id="entryCalendar" GridPane.columnIndex="0" GridPane.rowIndex="8" GridPane.columnSpan="2" />
+        <Button text="Report Viewer" GridPane.columnIndex="2" GridPane.rowIndex="9" onAction="#viewReport" />
     </GridPane>
 </GridPane>

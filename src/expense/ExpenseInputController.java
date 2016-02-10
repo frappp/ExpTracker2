@@ -358,9 +358,9 @@ public class ExpenseInputController {
             }
         }
 
-        itemEntryCost = itemCost.getText();
-        itemEntryName = itemName.getText();
-        itemEntryDescription = itemDesc.getText();
+        itemEntryCost = itemCost.getText().trim();
+        itemEntryName = itemName.getText().trim();
+        itemEntryDescription = itemDesc.getText().trim();
         itemEntryUserID = UserManager.getUser().getUserID();
 //        Pulls date value from date-picker and if no date is selected defaults to todays date.
         if (entryCalendar.getValue() == null){

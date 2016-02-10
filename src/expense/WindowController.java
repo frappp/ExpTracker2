@@ -46,7 +46,7 @@ public class WindowController {
         Parent reportViewerWindow;
         reportViewerWindow = FXMLLoader.load(WindowController.class.getResource("/fxml/ReportWindow.fxml"));
         reportStage.setTitle("Expense Tracker - Report");
-        reportStage.setScene(new Scene(reportViewerWindow, 400, 500));
+        reportStage.setScene(new Scene(reportViewerWindow, 600, 500));
         reportStage.show();
     }
 

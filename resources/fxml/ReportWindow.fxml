@@ -1,8 +1,27 @@
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <GridPane fx:controller="expense.ReportWindowController" stylesheets="/styles/styles.css"
           xmlns:fx="http://javafx.com/fxml" alignment="TOP_CENTER" hgap="10" vgap="10" fx:id="reportMainPane">
     <GridPane GridPane.rowIndex="0" GridPane.columnIndex="0">
-        <Label text="hello wworld" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+
+        <GridPane GridPane.rowIndex="1" GridPane.columnIndex="0" fx:id="delButtonColumn" alignment="CENTER" styleClass="entryPane" visible="false">
+        <!--left-left hand side pane - delete buttons go here (hidden by default) -->
+        </GridPane>
+        <GridPane GridPane.rowIndex="1" GridPane.columnIndex="1" fx:id="entryDateGridPane" alignment="CENTER" styleClass="entryPane">
+            <!--left hand side - dates go here-->
+
+        </GridPane>
+        <GridPane GridPane.rowIndex="1" GridPane.columnIndex="2" fx:id="expensesGridPane" alignment="CENTER" styleClass="entryPane">
+            <!--center pane - expense entries go here-->
+
+        </GridPane>
+        <GridPane GridPane.rowIndex="1" GridPane.columnIndex="3" fx:id="incomesGridPane" alignment="CENTER" styleClass="entryPane">
+            <!--right hand side - income entries go here-->
+
+        </GridPane>
+    </GridPane>
+    <GridPane GridPane.rowIndex="1" GridPane.columnIndex="0" alignment="BOTTOM_RIGHT">
+        <Button text="X" onAction="#showDeleteButtons" fx:id="showDeleteButtonsButton" />
     </GridPane>
 </GridPane>

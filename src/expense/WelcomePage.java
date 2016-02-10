@@ -69,9 +69,9 @@ public class WelcomePage {
 
 //  Attempts to create new user
     public void submitNewUser(ActionEvent ae){
-        String newLast = newLastName.getText();
-        String newFirst = newFirstName.getText();
-        String newUser = newUserName.getText();
+        String newLast = newLastName.getText().trim();
+        String newFirst = newFirstName.getText().trim();
+        String newUser = newUserName.getText().trim();
         if (newFirst.equals("") || newLast.equals("") || newUser.equals("")) {
             Alert warning = new Alert(Alert.AlertType.INFORMATION);
             warning.setTitle("Blank Entries");
